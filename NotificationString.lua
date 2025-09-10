@@ -5,4 +5,4 @@ end
 
 local url = getGitHubRawUrl("Yuna-ux", "Other-scripts", "main", "NotificationModule.lua")
 
-return url
+return loadstring(game:HttpGet(url))
