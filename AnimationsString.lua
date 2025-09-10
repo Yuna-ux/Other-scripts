@@ -1,8 +1,3 @@
-function getGitHubRawUrl(user, repo, branch, filePath)
-    return string.format("https://raw.githubusercontent.com/%s/%s/%s/%s",
-        user, repo, branch, filePath)
-end
-
-local url = getGitHubRawUrl("Yuna-ux", "Other-scripts", "main", "AnimationsTable.lua")
+local url = "https://raw.githubusercontent.com/Yuna-ux/Other-scripts/refs/heads/main/AnimationsTable.lua"
 
 return loadstring(game:HttpGet(url))
