@@ -1,4 +1,8 @@
-local githubStr = "https://raw.githubusercontent.com/Yuna-ux/"
-local path = "Other-scripts/refs/heads/main/NotificationModule.lua"
+function getGitHubRawUrl(user, repo, branch, filePath)
+    return string.format("https://raw.githubusercontent.com/%s/%s/%s/%s",
+        user, repo, branch, filePath)
+end
 
-return githubStr .. path
+local url = getGitHubRawUrl("Yuna-ux", "Other-scripts", "main", "NotificationModule.lua")
+
+return url
