@@ -1,3 +1,6 @@
+-- made by redz9999
+-- version v5
+-- LUAU 5.1 Roblox
 local MarketplaceService = game:GetService("MarketplaceService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
