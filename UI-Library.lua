@@ -1,5 +1,5 @@
 -- made by redz9999
--- version v5
+-- version v1.2.0
 -- LuaU 5.1
 -- Edit By @Yuna-ux
 
@@ -53,7 +53,7 @@ local redzlib = {
 		}
 	},
 	Info = {
-		Version = "1.1.0"
+		Version = "1.2.0"
 	},
 	Save = {
 		UISize = {550, 380},
