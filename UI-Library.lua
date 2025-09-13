@@ -1185,7 +1185,7 @@ local function VerifyTheme(Theme)
     if type(Theme) ~= "string" then warn("Redzlib: Invalid theme, theme must be string") return end
     if Theme == "" then warn("Redzlib: Invalid theme, theme cannot be empty") return end
 	for name,_ in pairs(redzlib.Themes) do
-		if name == Theme and then
+		if name == Theme then
 			return true
 		end
 	end
