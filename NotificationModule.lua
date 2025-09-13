@@ -18,32 +18,20 @@ local function getService(serviceName)
     return nil
 end
 
+local Players = getService("Players")
 local UserInputService = getService("UserInputService")
 local RunService = getService("RunService")
 local TweenService = getService("TweenService")
 local TextService = getService("TextService")
 local CoreGui = getService("CoreGui")
 
-local Players = getService("Players")
+local Player = Players.LocalPlayer
 
-local Player
-local function getPlayer()
-    if Player and Player.Parent then
-        return Player
-    end
-    
-    Players = getService("Players")
+if not Player then
+    Players.PlayerAdded:Wait()
     Player = Players.LocalPlayer
-    
-    if not Player then
-        Players.PlayerAdded:Wait()
-        Player = Players.LocalPlayer
-    end
-    
-    return Player
 end
 
-Player = getPlayer()
 local PlayerGui = Player:FindFirstChild("PlayerGui")
 
 local NotifGui = Instance.new("ScreenGui")
@@ -239,28 +227,14 @@ local function FadeOutAfter(Object, Seconds)
     end)
 end
 
-local function convertToString(arg)
-    if type(arg) ~= "string" then
-        return tostring(arg)
-    end
-end
-
-local function convertToNumber(arg)
-    if type(arg) ~= "number" then
-        return tonumber(arg)
-    end
-end
-
 local function Notify(Properties)
-    Properties = type(Properties) == "table" and Properties or {}
-    local Title = Properties.Title or "Notification"
-    local Description = Properties.Description or "This is description"
+    local Properties = type(Properties) == "table" and Properties or {}
+    local Title = Properties.Title
+    local Description = Properties.Description
     local Duration = Properties.Duration or 5
     
-    Title = convertToString(Title)
-    Description = convertToString(Description)
-    Duration = convertToNumber(Duration) or 5
-    
+    if not Title and not Description then return end
+
     task.spawn(function()
         local Y = Title and 26 or 0
         
@@ -296,17 +270,3 @@ local function Notify(Properties)
         FadeOutAfter(NewLabel, Duration)
     end)
 end
-
-local function QuickNotify(message, duration)
-    Notify({
-        Title = "Info",
-        Description = message,
-        Duration = duration or 3
-    })
-end
-
-return {
-    Notify,
-    QuickNotify,
-    NotifGui
-}
