@@ -2,6 +2,8 @@ if game and not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
+local Services = {}
+
 local function getService(serviceName)
     if Services[serviceName] then
         return Services[serviceName]
