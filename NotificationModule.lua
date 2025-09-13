@@ -270,3 +270,7 @@ local function Notify(Properties)
         FadeOutAfter(NewLabel, Duration)
     end)
 end
+
+return {
+    Notify
+}
